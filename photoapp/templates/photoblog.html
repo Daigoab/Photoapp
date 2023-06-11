@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %} 
+{% for photoblog in photoblogs %}
+<div class="photoblog_container">
+    <div class="photoblog_image">
+        <a href="{% url 'photodetails' photoblog.id %}">
+            <img src="{{photoblog.image.url}}" alt="", width="200">
+        </a>
+    </div>
+    <h3>{{ photoblog.title }}</h3>
+    <p>Added by: {{ photoblog.author }}</p>
+    <p>Created on: {{ photoblog.created_date }}</p>
+</div>
+{% endfor %}
+{%endblock%}

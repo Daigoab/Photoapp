@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %} 
+
+<div class="photoblog_container">
+    <div class="photoblog_image">
+        <img src="{{ photoblog.image.url }}" alt="{{ photoblog.title }}" width="400">
+    </div>
+    <h3>{{ photoblog.title }}</h3>
+    <p>{{ photoblog.author }}</p>
+    <p>{{ photoblog.text }}</p>
+    <p>{{ photoblog.created_date }}</p>
+    <p>{{ photoblog.published_date }}</p>
+</div>
+{%endblock%}
