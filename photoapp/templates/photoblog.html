@@ -5,12 +5,23 @@
 <div class="photoblog_container">
     <div class="photoblog_image">
         <a href="{% url 'photodetails' photoblog.id %}">
-            <img src="{{photoblog.image.url}}" alt="", width="200">
+            <img src="{{photoblog.image.url}}" alt="" width="200">
         </a>
     </div>
-    <h3>{{ photoblog.title }}</h3>
-    <p>Added by: {{ photoblog.author }}</p>
-    <p>Created on: {{ photoblog.created_date }}</p>
+    <div class="buttons">
+        <button type="submit" class="like-button"><img src="/static/images/icons8-facebook-like-50.png" alt="Like"></button>
+        <a href="{% url 'add_comment' photoblog_id=photoblog.id %}" class="comment-button">
+            <img src="/static/images/icons8-comments-32.png" alt="Comment">
+        </a>
+    <p>Likes: {{ photoblog.like_count }} likes</p>
+    <h4>{{ photoblog.title }}</h4>
+    <p>Added {{ photoblog.created_date|timesince }} ago</p>
 </div>
 {% endfor %}
-{%endblock%}
+<script>
+    function toggleButtonColor(button) {
+      button.classList.toggle('clicked');
+    }
+
+</script>
+{% endblock %}
