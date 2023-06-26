@@ -18,6 +18,7 @@ from django.contrib.auth import views
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path,include
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django_registration.backends.one_step.views import RegistrationView
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,3 +28,5 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
